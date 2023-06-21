@@ -1,6 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { merge } = require('webpack-merge');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
@@ -12,10 +16,19 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.ts', '.tsx', '.js'],
     },
     output: {
         filename: 'index.js',
