@@ -10,8 +10,8 @@ class App {
     }
 
     public start(): void {
-        const sourses = document.querySelector('.sources') as HTMLElement;
-        sourses.addEventListener('click', (e) => {
+        const srcEl = document.querySelector('.sources') as HTMLElement;
+        srcEl.addEventListener('click', (e) => {
             this.controller.getNews(e, (data) => {
                 this.view.drawNews(data);
             });

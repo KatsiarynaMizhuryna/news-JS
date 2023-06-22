@@ -1,16 +1,28 @@
-import { sourceObj, ResponseObj, SrcOptions, apiKeyObj } from '../../types/types';
+import { SrcOptions, apiKeyObj, SourceData } from '../../types/types';
+enum endpoint {
+    'sources',
+    'everything',
+    'top-headlines',
+}
 
 type loadCallBack<T> = (data: T) => void;
+type PartialSourceObj = Partial<SrcOptions>;
+
+interface getRespObj {
+    endpoint: keyof typeof endpoint;
+    options?: PartialSourceObj;
+}
+
 class Loader {
-    private baseLink;
-    public options;
+    baseLink;
+    options;
     constructor(baseLink: string, options: apiKeyObj) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} }: ResponseObj,
+        { endpoint, options = {} }: getRespObj,
         callback = (): void => {
             console.error('No callback for GET response');
         }
@@ -18,7 +30,7 @@ class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: Response): Response {
+    errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -38,7 +50,7 @@ class Loader {
 
         return url.slice(0, -1);
     }
-    load(method: string, endpoint: string, callback: loadCallBack<sourceObj>, options: SrcOptions = {}): void {
+    load(method: string, endpoint: string, callback: loadCallBack<SourceData>, options: SrcOptions = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
