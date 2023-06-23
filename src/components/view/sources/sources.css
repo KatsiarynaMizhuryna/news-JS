@@ -11,17 +11,16 @@
 
 .source__item {
     background: none;
-    border: 2px solid #838a8d;
+    border: 2px solid #1d1d1e;
     border-radius: 15px;
     font: inherit;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
-    color: #838a8d;
+    color: #1d1d1e;
     transition: 0.25s;
     cursor: pointer;
-    flex-shrink: 1
-}
+   }
 
 .source__item:hover,
 .source__item:focus {
@@ -41,7 +40,8 @@
         flex-direction: row;
         flex-wrap: nowrap;
         width: 100%;
-        max-height: 73px;
-
+    }
+    .source__item {
+        text-align: center;
     }
 }
