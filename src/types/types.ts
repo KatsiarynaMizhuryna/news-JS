@@ -7,7 +7,6 @@ export interface SourceObj {
     language: string;
     country: string;
 }
-
 export interface SourceData {
     status: string;
     sources: SourceObj[];
@@ -31,7 +30,6 @@ export interface ArticleData {
     totalResults: number;
     articles: ArticleObj[];
 }
-
 export interface apiKeyObj {
     apiKey: string;
 }
