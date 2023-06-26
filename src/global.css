@@ -1,16 +1,30 @@
 body {
-    color: #fff;
-    background: #17181c;
+    color: #252626;
+    background: rgb(255, 255, 255);
     font-family: sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
 
 header {
     padding: 10px 30px;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #333030;
+    background-color: rgb(255, 253, 250);
+    }
 
 header h1 {
     font-size: 40px;
     font-weight: 800;
+}
+
+main {
+    background: linear-gradient(to bottom, #9d9292 0, rgba(240, 240, 240, 0.98) 1%, rgba(255, 255, 255, 0) 50%);
+    display: flex;
+    min-height: 100%;
 }
 
 footer {
@@ -18,18 +32,69 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(159, 158, 158, 0.8);
+    border-top: 5px solid #333030;
 }
+
 footer .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
+
 footer .copyright a {
     color: #444;
 }
+
 footer .copyright a:hover {
     color: #555;
 }
+
 footer .copyright:before {
     content: '©';
+}
+
+.footer {
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #333;
+}
+
+.gh-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gh-profile img {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    main {
+        flex-direction: column;
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 12px;
+    }
 }
