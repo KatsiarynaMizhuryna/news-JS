@@ -36,3 +36,8 @@ export interface apiKeyObj {
 export interface SrcOptions {
     sources?: string;
 }
+export enum endpoint {
+    'sources',
+    'everything',
+    'top-headlines',
+}

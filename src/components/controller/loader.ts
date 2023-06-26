@@ -1,9 +1,4 @@
-import { SrcOptions, apiKeyObj, SourceData } from '../../types/types';
-enum endpoint {
-    'sources',
-    'everything',
-    'top-headlines',
-}
+import { SrcOptions, apiKeyObj, SourceData, endpoint } from '../../types/types';
 
 type loadCallBack<T> = (data: T) => void;
 type PartialSourceObj = Partial<SrcOptions>;
